@@ -1,5 +1,5 @@
-LAST_LAUNCH_TIMESTAMP=1390333887614
+LAST_LAUNCH_TIMESTAMP=1390333604456
 eclipse.preferences.version=1
-preference.show.console.onError=false
+preference.show.console.onError=true
 preference.studio.perspective.toolbar.visible=false
 preference.studio.perspective.version=102
