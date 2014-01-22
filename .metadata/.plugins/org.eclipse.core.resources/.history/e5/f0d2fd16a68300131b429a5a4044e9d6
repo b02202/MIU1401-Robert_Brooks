@@ -19,7 +19,7 @@ var gLabel = Ti.UI.createLabel({
 	font: {fontSize: 25, fontFamily: 'Helvetica'},
 	color: "#fff",
 	left: 20,
-	file: "meals1.js"
+	file: "meals.js"
 });
 var gView = Ti.UI.createView({
 	height: 100,
