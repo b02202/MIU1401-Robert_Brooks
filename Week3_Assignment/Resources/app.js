@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var tabGroup1 = Ti.UI.createTabGroup();
 
 var win = Ti.UI.createWindow({
@@ -37,3 +38,6 @@ win.add(ftLogo);
 tabGroup1.addTab(tabWin);
 tabGroup1.open();
 win.open();
+=======
+
+>>>>>>> 2fe6c60d6d2025adcf9d229eb97cd49d6d7c0fd8
