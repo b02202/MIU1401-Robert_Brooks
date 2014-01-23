@@ -93,7 +93,7 @@ table.addEventListener("click", function(event) {
   		contentHeight: 'auto',
   		layout: 'vertical',
   		top: 10,
-  		bottom: 50,
+  		bottom: 10,
   		//showVerticalScrollIndicator: true,
   		//showHorizontalScrollIndicator: true,
   		//height: '80%',

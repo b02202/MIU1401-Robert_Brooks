@@ -88,28 +88,19 @@ table.addEventListener("click", function(event) {
 		navGroup: currentWindow.navGroup,
 		rootWindow: currentWindow.rootWindow
 	});
-	var scrollView = Ti.UI.createScrollView({
-  		contentWidth: 'auto',
-  		contentHeight: 'auto',
-  		layout: 'vertical',
-  		top: 10,
-  		bottom: 50,
-  		//showVerticalScrollIndicator: true,
-  		//showHorizontalScrollIndicator: true,
-  		//height: '80%',
-  		width: '90%'
-	});
 	var centerView = Ti.UI.createView({
 		backgroundColor: "#000",
 		//bottom: 50,
 		borderColor: "#fff",
 		borderRadius: 20,
-		height: 800,
-		//top: 10,
-		left: 5,
-		right: 5
+		top: 10,
+		left: 15,
+		right: 15
 	});
-
+	var scrollableView = Ti.UI.createScrollableView({
+  		views:[centerView],
+  	    showPagingControl:true
+	});
 	var detailText = Ti.UI.createLabel({
 		text: event.source.desc,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -125,8 +116,7 @@ table.addEventListener("click", function(event) {
 	height: 200
 });
 
-	detailWindow.add(scrollView);
-	scrollView.add(centerView);
+	detailWindow.add(centerView);
 	centerView.add(detailText, image);
 	currentWindow.navGroup.open(detailWindow, {animation: true});
 	

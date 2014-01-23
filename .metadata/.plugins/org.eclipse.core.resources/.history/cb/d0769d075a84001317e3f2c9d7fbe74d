@@ -93,7 +93,6 @@ table.addEventListener("click", function(event) {
   		contentHeight: 'auto',
   		layout: 'vertical',
   		top: 10,
-  		bottom: 50,
   		//showVerticalScrollIndicator: true,
   		//showHorizontalScrollIndicator: true,
   		//height: '80%',
@@ -104,10 +103,9 @@ table.addEventListener("click", function(event) {
 		//bottom: 50,
 		borderColor: "#fff",
 		borderRadius: 20,
-		height: 800,
 		//top: 10,
-		left: 5,
-		right: 5
+		//left: 15,
+		//right: 15
 	});
 
 	var detailText = Ti.UI.createLabel({

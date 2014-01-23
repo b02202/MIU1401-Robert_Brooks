@@ -91,23 +91,19 @@ table.addEventListener("click", function(event) {
 	var scrollView = Ti.UI.createScrollView({
   		contentWidth: 'auto',
   		contentHeight: 'auto',
-  		layout: 'vertical',
-  		top: 10,
-  		bottom: 50,
-  		//showVerticalScrollIndicator: true,
-  		//showHorizontalScrollIndicator: true,
-  		//height: '80%',
-  		width: '90%'
+  		showVerticalScrollIndicator: true,
+  		showHorizontalScrollIndicator: true,
+  		height: '80%',
+  		width: '80%'
 	});
 	var centerView = Ti.UI.createView({
 		backgroundColor: "#000",
 		//bottom: 50,
 		borderColor: "#fff",
 		borderRadius: 20,
-		height: 800,
-		//top: 10,
-		left: 5,
-		right: 5
+		top: 10,
+		left: 15,
+		right: 15
 	});
 
 	var detailText = Ti.UI.createLabel({
