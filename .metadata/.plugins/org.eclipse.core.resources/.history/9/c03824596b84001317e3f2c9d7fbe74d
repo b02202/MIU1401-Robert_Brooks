@@ -130,7 +130,7 @@ table.addEventListener("click", function(event) {
 	var nutText = Ti.UI.createLabel({
 		text: "Nutrition Facts (per serving): " + event.source.nut,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-		top: instText.top + 125,
+		top: instText.top + 175,
 		left: 10,
 		right: 10,
 		color: "#fff",

@@ -15,7 +15,6 @@ var dataList = {
 			 "total": "15 min",
 			 "yield": "1 serving",
 			 "ingredients": "2 Egg whites – hard boiled, yolks discarded, 4 tbsps., Hummus, Paprika – to taste.",
-			 "instructions": "Slice the eggs in half, discard yolks, and fill each egg white half with one-fourth of the hummus. Top with paprika to taste.",
 			 "nutrition": "Calories 135, Protein 12g, Total Fat 6g, Carbohydrates 9g, Fiber 4g",
 			 "reviews": "" },
 			 {"name": "Feta-Walnut Dip with Veggies",
@@ -25,7 +24,6 @@ var dataList = {
 			 "total": "2 hr 15 min",
 			 "yield": "11 servings of 2 ¾ cups",
 			 "ingredients": "2 cups 0%-Fat Greek yogurt, 1 cup Low-fat Feta – Crumbled, ½ lemon Fresh-squeezed lemon juice, 3 cloves Garlic – pressed, 3 tbsps. Walnuts – chopped, ½ tsp. Black pepper = ground, ½ tsp. Tabasco – to taste, 4 Bell peppers – sliced for dipping, 2 Cucumbers – sliced for dipping, 3 cups Cauliflower – cut for dipping, 3 ½ cups Broccoli – cut for dipping, 1 cup Cherry tomatoes.",
-			 "instructions": "Add Feta cheese to Greek yogurt, lemon juice, minced garlic, toasted walnuts, freshly ground black pepper, and hot sauce. Mix well. Cover with plastic wrap and refrigerate for at least 2 hours to allow the flavors to blend. Cut the veggies for dipping.",
 			 "nutrition": "Calories 94, Protein 9g, Total Fat 3g, Carbohydrates 11g, Fiber 3g.",
 			 "reviews": "" }		
 		]
@@ -50,9 +48,6 @@ var tableSection = Ti.UI.createTableViewSection({
 			cook: dataList[n].snack[i].cook,
 			total: dataList[n].snack[i].total,
 			yield: dataList[n].snack[i].yield,
-			ing: dataList[n].snack[i].ingredients,
-			inst: dataList[n].snack[i].instructions,
-			nut: dataList[n].snack[i].nutrition,
 			image: "snacks/" + dirList[i],
 			hasChild: true
 		});
@@ -103,39 +98,12 @@ table.addEventListener("click", function(event) {
 	var prepText = Ti.UI.createLabel({
 		text: "Prep: " + event.source.prep + ", Cook: " + event.source.cook + ", Total: " + event.source.total +", Yield: " + event.source.yield,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-		top: detailText.top + 75,
+		top: detailText.top + 20,
 		left: 10,
 		right: 10,
 		color: "#fff",
 		font: {fontSize: 13, fontFamily: "Arial"}
 	});	
-	var ingText = Ti.UI.createLabel({
-		text: "Ingredients: " + event.source.ing,
-		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-		top: prepText.top + 50,
-		left: 10,
-		right: 10,
-		color: "#fff",
-		font: {fontSize: 13, fontFamily: "Arial"}
-	});
-	var instText = Ti.UI.createLabel({
-		text: "Instructions: " + event.source.inst,
-		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-		top: ingText.top + 175,
-		left: 10,
-		right: 10,
-		color: "#fff",
-		font: {fontSize: 13, fontFamily: "Arial"}	
-	});
-	var nutText = Ti.UI.createLabel({
-		text: "Nutrition Facts (per serving): " + event.source.nut,
-		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-		top: instText.top + 125,
-		left: 10,
-		right: 10,
-		color: "#fff",
-		font: {fontSize: 13, fontFamily: "Arial"}	
-	});
 	var image = Ti.UI.createImageView({
 	image: event.source.image,
 	top: 5,
@@ -144,7 +112,7 @@ table.addEventListener("click", function(event) {
 
 	detailWindow.add(scrollView);
 	scrollView.add(centerView);
-	centerView.add(detailText, prepText, ingText, instText, nutText, image);
+	centerView.add(detailText, prepText, image);
 	currentWindow.navGroup.open(detailWindow, {animation: true});
 	
 });

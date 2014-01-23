@@ -83,7 +83,6 @@ var tableSection = Ti.UI.createTableViewSection({
 			image: "recipes/" + dirList[i],
 			ing: dataList[n].meal[i].ingredients,
 			inst: dataList[n].meal[i].ingredients,
-			nut: dataList[n].meal[i].nutrition,
 			hasChild: true
 		});	
 		tableSection.add(theRow);
@@ -158,15 +157,6 @@ table.addEventListener("click", function(event) {
 		color: "#fff",
 		font: {fontSize: 13, fontFamily: "Arial"}	
 	});	
-	var nutText = Ti.UI.createLabel({
-		text: "Nutrition Facts (per serving): " + event.source.nut,
-		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-		top: instText.top + 175,
-		left: 10,
-		right: 10,
-		color: "#fff",
-		font: {fontSize: 13, fontFamily: "Arial"}	
-	});		
 	
 	var image = Ti.UI.createImageView({
 	image: event.source.image,
@@ -176,7 +166,7 @@ table.addEventListener("click", function(event) {
 
 	detailWindow.add(scrollView);
 	scrollView.add(centerView);
-	centerView.add(detailText, prepText, ingText, instText, nutText, image);
+	centerView.add(detailText, prepText, ingText, instText, image);
 	currentWindow.navGroup.open(detailWindow, {animation: true});
 	
 });
