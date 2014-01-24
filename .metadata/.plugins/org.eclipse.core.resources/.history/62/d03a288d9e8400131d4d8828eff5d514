@@ -38,10 +38,8 @@ var tabBar = Titanium.UI.iOS.createTabbedBar({
     bottom: 0,
     style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
     height:50,
-    width:'100%',
-    url: 'app.js'
+    width:'100%'
 });
-
 var search = Titanium.UI.createSearchBar({
     barColor:'#000', 
     showCancel:true,

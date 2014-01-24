@@ -34,14 +34,12 @@ var dataList = {
 
 var tabBar = Titanium.UI.iOS.createTabbedBar({
     labels:['Home', 'Meals', 'Snacks', 'Favorites'],
-    backgroundColor:'#0099ff',
+    backgroundColor:'#336699',
     bottom: 0,
     style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
     height:50,
-    width:'100%',
-    url: 'app.js'
+    width:'100%'
 });
-
 var search = Titanium.UI.createSearchBar({
     barColor:'#000', 
     showCancel:true,

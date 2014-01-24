@@ -38,10 +38,20 @@ var tabBar = Titanium.UI.iOS.createTabbedBar({
     bottom: 0,
     style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
     height:50,
-    width:'100%',
-    url: 'app.js'
+    width:'100%'
 });
-
+tabBar.addEventListener("click", function(event){
+	var newWindow = Ti.UI.createWindow({
+		title: event.source.text,
+		modal: true,
+		backgroundColor: "#000",
+		backgroundImage: "bg1.png",
+		url: 'app.js',
+		//next three lines pass the navGroup properties to each newWindow created
+		_parent: Ti.UI.currentWindow,
+		navGroup: navGroup,
+		rootWindow: navWindow
+	});
 var search = Titanium.UI.createSearchBar({
     barColor:'#000', 
     showCancel:true,
@@ -79,15 +89,16 @@ var tableSection = Ti.UI.createTableViewSection({
 	}
 	mySections.push(tableSection);
 }
-table.addEventListener("click", function(event) {
+tabBar.addEventListener("click", function(event) {
 	var detailWindow = Ti.UI.createWindow({
-		backgroundImage: "bg1.png",
-		backgroundColor: "#000",
-		title: event.source.title,
-		modal: true,
-		_parent: Ti.UI.currentWindow,
-		navGroup: currentWindow.navGroup,
-		rootWindow: currentWindow.rootWindow
+		url: 'app.js'
+		//backgroundImage: "bg1.png",
+		//backgroundColor: "#000",
+		//title: event.source.title,
+		//modal: true,
+		//_parent: Ti.UI.currentWindow,
+		//navGroup: currentWindow.navGroup,
+		//rootWindow: currentWindow.rootWindow
 	});
 	var scrollView = Ti.UI.createScrollView({
   		contentWidth: 'auto',
