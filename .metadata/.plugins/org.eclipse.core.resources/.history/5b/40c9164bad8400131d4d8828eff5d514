@@ -61,16 +61,6 @@ var dataList = {
 		]
 	}
 };
-
-// tabbed bar
-var tabBar = Titanium.UI.iOS.createTabbedBar({
-    labels:['Home', 'Meals', 'Snacks', 'Favorites'],
-    backgroundColor:'#0099ff',
-    bottom: 0,
-    style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
-    height:50,
-    width:'100%'  
-});
 // search bar
 var search = Titanium.UI.createSearchBar({
     barColor:'#000', 
@@ -102,7 +92,7 @@ var tableSection = Ti.UI.createTableViewSection({
 			ing: dataList[n].meal[i].ingredients,
 			inst: dataList[n].meal[i].ingredients,
 			nut: dataList[n].meal[i].nutrition,
-			rev: dataList[n].meal[i].reviews,
+			rev: dataList[n].meal[i].nutrition,
 			hasChild: true
 		});	
 		tableSection.add(theRow);
@@ -178,7 +168,7 @@ table.addEventListener("click", function(event) {
 		font: {fontSize: 13, fontFamily: "Arial"}	
 	});	
 	var nutText = Ti.UI.createLabel({
-		text: "Nutrition Facts (per serving): " + event.source.nut,
+		text: "Nutrition Facts (per serving): " + event.source.rev,
 		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 		top: instText.top + 175,
 		left: 10,
@@ -202,7 +192,7 @@ table.addEventListener("click", function(event) {
 	height: 200
 });
 
-	detailWindow.add(scrollView, tabBar);
+	detailWindow.add(scrollView);
 	scrollView.add(centerView);
 	centerView.add(detailText, prepText, ingText, instText, nutText, revText, image);
 	currentWindow.navGroup.open(detailWindow, {animation: true});

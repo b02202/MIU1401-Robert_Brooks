@@ -2,11 +2,11 @@
 var currentWindow = Ti.UI.currentWindow;
 var imageList = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "snacks");
 var dirList = imageList.getDirectoryListing();
-// JSON Data for favorites
+// JSON Data for Snacks
 var dataList = {
 	"snacks": {
-		"headTitle": "Favorites",
-		"footTitle": "Pick a recipe for more info.",
+		"headTitle": "Snacks",
+		"footTitle": "Pick a snack for more info.",
 		"snack": [
 			{"name": "Deviled Eggs with Hummus",
 			 "description": "A very filling snack, without so much saturated fat. This quick, easy to make snack is a major hit for people who love deviled eggs.",
@@ -17,7 +17,7 @@ var dataList = {
 			 "ingredients": "2 Egg whites – hard boiled, yolks discarded, 4 tbsps., Hummus, Paprika – to taste.",
 			 "instructions": "Slice the eggs in half, discard yolks, and fill each egg white half with one-fourth of the hummus. Top with paprika to taste.",
 			 "nutrition": "Calories 135, Protein 12g, Total Fat 6g, Carbohydrates 9g, Fiber 4g",
-			 "reviews": "I really enjoyed this recipe. The instructions were clear and I had no problem putting it together.  - John Marshall." },
+			 "reviews": "I really enjoyed this recipe. The instructions were clear and I had no problem putting it together.  - John Marshall."" },
 			 {"name": "Feta-Walnut Dip with Veggies",
 			 "description": "A wonderful taste of Greece! This easy vegetable dip is a very tasty and nutritious snack.",
 			 "prep": "2 hr 15 min",
