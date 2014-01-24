@@ -61,16 +61,10 @@ var dataList = {
 		]
 	}
 };
-// search bar
-var search = Titanium.UI.createSearchBar({
-    barColor:'#000', 
-    showCancel:true,
-    height:43,
-    top:0,
-});
+
 var table = Ti.UI.createTableView({
 	style: Ti.UI.iPhone.TableViewStyle.GROUPED,
-	search: search,
+	search: Titanium.UI.SearchBar,
 	searchAsChild: true
 });
 console.log(table);
@@ -189,5 +183,4 @@ table.addEventListener("click", function(event) {
 	
 });
 table.setData(mySections);
-//table.add(search);
 currentWindow.add(table);

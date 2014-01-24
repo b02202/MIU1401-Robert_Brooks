@@ -33,24 +33,16 @@ var dataList = {
 };
 
 var tabBar = Titanium.UI.iOS.createTabbedBar({
-    labels:['Home', 'Meals', 'Snacks', 'Favorites'],
+    labels:['One', 'Two', 'Three'],
     backgroundColor:'#336699',
     bottom: 0,
     style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
-    height:50,
+    height:25,
     width:'100%'
-});
-var search = Titanium.UI.createSearchBar({
-    barColor:'#000', 
-    showCancel:true,
-    height:43,
-    top:0,
 });
 
 var table = Ti.UI.createTableView({
-	style: Ti.UI.iPhone.TableViewStyle.GROUPED,
-	search: search,
-	searchAsChild: true	
+	style: Ti.UI.iPhone.TableViewStyle.GROUPED	
 });
 console.log(table);
 var mySections = [];

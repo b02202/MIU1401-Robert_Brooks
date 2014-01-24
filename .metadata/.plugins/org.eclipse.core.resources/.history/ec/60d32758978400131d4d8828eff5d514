@@ -61,7 +61,6 @@ var dataList = {
 		]
 	}
 };
-// search bar
 var search = Titanium.UI.createSearchBar({
     barColor:'#000', 
     showCancel:true,
@@ -189,5 +188,5 @@ table.addEventListener("click", function(event) {
 	
 });
 table.setData(mySections);
-//table.add(search);
+table.add(search);
 currentWindow.add(table);
