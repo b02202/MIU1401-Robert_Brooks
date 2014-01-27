@@ -1,0 +1,22 @@
+var win = Ti.UI.createWindow({
+	title: "Utility App",
+	tabBarHidden: true,
+	backgroundColor: "#333",
+});
+var navWindow = Ti.UI.createWindow({
+	title: "Utility App",
+	modal: true,
+	backgroundImage: "bg1.png",
+	backgroundColor: "#000"
+});
+var container = Ti.UI.createView({
+	top: 0,
+	height: 300,
+	width: "100%"
+});
+
+
+
+win.add(navWindow);
+win.open;
+

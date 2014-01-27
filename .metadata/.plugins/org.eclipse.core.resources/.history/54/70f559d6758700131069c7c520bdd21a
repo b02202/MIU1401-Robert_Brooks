@@ -1,5 +1,3 @@
-
-
 var win = Ti.UI.createWindow({
 	title: "Utility App",
 	tabBarHidden: true,
@@ -76,8 +74,7 @@ var loginButton = Ti.UI.createLabel({
     height: 50,
     top: 13,
     left: 40,
-    right: 40,
-    file: 'home.js'
+    right: 40
 });
 
 var signUp= Ti.UI.createLabel({
@@ -89,14 +86,13 @@ var signUp= Ti.UI.createLabel({
     borderRadius: 20,
     borderColor: "#fff",
     height: 50,
-    top: 50,
+    top: 13,
     left: 40,
-    right: 40,
-    file: 'signup.js'
+    right: 40
 });
 
 
-container.addEventListener("click", function(event){
+/*container.addEventListener("click", function(event){
 	var newWindow = Ti.UI.createWindow({
 		title: event.source.text,
 		modal: true,
@@ -110,11 +106,11 @@ container.addEventListener("click", function(event){
 	});
 	navGroup.open(newWindow, {animation: true});
 });
-
+*/	
 var navGroup = Ti.UI.iPhone.createNavigationGroup({
 	window: navWindow	
 });
-navWindow.navGroup = navGroup;
+//navWindow.navGroup = navGroup;
 //gView.add(spacer, gLabel);
 //tView.add(spacer, tLabel);
 //fView.add(fLabel);

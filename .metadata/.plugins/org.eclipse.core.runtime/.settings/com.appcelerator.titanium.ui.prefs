@@ -1,9 +1,9 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1390839961828
+LAST_LAUNCH_TIMESTAMP=1390845017209
 Week3_Assignment\:launchMode=run
 Week3_Assignment\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
 Week4_Assignment\:launchMode=run
-Week4_Assignment\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.run.device.launchShortcut
+Week4_Assignment\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
 eclipse.preferences.version=1
 preference.show.console.onError=true
 preference.studio.perspective.toolbar.visible=false

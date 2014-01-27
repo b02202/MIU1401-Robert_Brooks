@@ -1,5 +1,3 @@
-
-
 var win = Ti.UI.createWindow({
 	title: "Utility App",
 	tabBarHidden: true,
@@ -12,18 +10,18 @@ var navWindow = Ti.UI.createWindow({
 	backgroundColor: "#000"
 });
 var container = Ti.UI.createView({
-	top: 20,
-	//height: 300,
+	top: 200,
+	height: 300,
 	width: "100%"
 });
 
 var formData = ["Username / Email", "Password", "Email", "Phone"];
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
-	//backgroundColor: "#000",
-	//borderRadius: 20,
-	//borderColor: "#fff",
-	top: 0,
+	backgroundColor: "#000",
+	borderRadius: 20,
+	borderColor: "#fff",
+	top: 130,
 	left: 10,
 	right: 10,
 });
@@ -66,7 +64,7 @@ var txt4 = Ti.UI.createTextField({
 });
 
 var loginButton = Ti.UI.createLabel({
-	text: "Login",
+	text: "SUBMIT",
 	color: "#fff",
 	font: {fontSize: 25, fontFamily: "Helvetica"},
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -76,27 +74,11 @@ var loginButton = Ti.UI.createLabel({
     height: 50,
     top: 13,
     left: 40,
-    right: 40,
-    file: 'home.js'
-});
-
-var signUp= Ti.UI.createLabel({
-	text: "SignUp",
-	color: "#fff",
-	font: {fontSize: 25, fontFamily: "Helvetica"},
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-    backgroundColor: "#0099ff",
-    borderRadius: 20,
-    borderColor: "#fff",
-    height: 50,
-    top: 50,
-    left: 40,
-    right: 40,
-    file: 'signup.js'
+    right: 40
 });
 
 
-container.addEventListener("click", function(event){
+/*container.addEventListener("click", function(event){
 	var newWindow = Ti.UI.createWindow({
 		title: event.source.text,
 		modal: true,
@@ -110,15 +92,15 @@ container.addEventListener("click", function(event){
 	});
 	navGroup.open(newWindow, {animation: true});
 });
-
+*/	
 var navGroup = Ti.UI.iPhone.createNavigationGroup({
 	window: navWindow	
 });
-navWindow.navGroup = navGroup;
+//navWindow.navGroup = navGroup;
 //gView.add(spacer, gLabel);
 //tView.add(spacer, tLabel);
 //fView.add(fLabel);
-formView.add(txt1, txt2, loginButton, signUp);
+formView.add(txt1, txt2, loginButton);
 container.add(formView);
 navWindow.add(container);
 win.add(navGroup);
