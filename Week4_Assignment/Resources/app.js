@@ -111,7 +111,7 @@ container.addEventListener("click", function(event){
 	navGroup.open(newWindow, {animation: true});
 });
 
-var navGroup = Ti.UI.iPhone.createNavigationGroup({
+var navGroup = Ti.UI.iOS.createNavigationWindow({
 	window: navWindow	
 });
 navWindow.navGroup = navGroup;
