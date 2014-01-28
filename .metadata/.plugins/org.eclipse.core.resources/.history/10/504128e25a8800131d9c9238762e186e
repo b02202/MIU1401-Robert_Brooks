@@ -64,9 +64,9 @@ var submitButton = Ti.UI.createLabel({
 var alertText = function(){
 	var maxText = 220 - txt2.value;
 	var hRange = maxText * 0.80;
-	var lRange = maxText * 0.50;
+	var lRanfe = maxText * 0.50;
 	
-	alert( txt1.value + ", your" + "\n" + "Max Heart Rate is: " + maxText + " BPM" + "\n" + "Target Heart Rate Zone is:"  + "\n" + Math.round(lRange) + " BPM - " + Math.round(hRange) + " BPM" + "\n");
+	alert( "Max Heart Rate: " + maxText + "\n" + "Target Heart Rate Zone:"  + "\n" + hRange + " - " + lRange + "\n");
 };
 submitButton.addEventListener("click", alertText);
 formView.add(txt1, txt2, txt3, submitButton);
