@@ -107,14 +107,19 @@ signUp.addEventListener('click', function(){
 });
 
 loginButton.addEventListener('click', function emailVal(){
-	var email = txt1.value;
-	var atPos = email.indexOf("@");
-	var dotPos = email.lastIndexOf(".");
+	var emailDivider =  txt1.value.split("@");
+	//var emailDivider2 = emailDivider[1].split(".");
+	var email1 = emailDivider[0];
+	var email2 = emailDivider2[0];
+	var email3 = emailDivider2[1];
+	var test = txt1.value.indexOf("@");
+	var test2 = txt1.value.lastIndexOf("@");
+	var test3 = txt1.value.indexOf(".");
+	var test4 = txt1.value.lastIndexOf(".");
+	var emailInput = email1 + "@" + email2 + "." + email3;
 
 	
-		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length) {
-			alert("Please enter a valid email.");
-		} else{ 
+		if (emailInput === email && test <= test2 && test > 0 && test3 <= test4 && test4 > test2 +1) {
 			var newWindow = Ti.UI.createWindow({
 				title: win2.text,
 				modal: true,
@@ -127,7 +132,8 @@ loginButton.addEventListener('click', function emailVal(){
 				rootWindow: win1
 			});
 	win1.openWindow(newWindow, {animated:true});
-			
+		} else{ 
+			alert("Please enter a valid email.");
 		}	
 	// win1.openWindow(newWindow, {animated:true});
 });

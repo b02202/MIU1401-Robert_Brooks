@@ -4,9 +4,9 @@ var formData = ["Name", "Age", "Endurance / Interval", "Phone"];
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	backgroundColor: "#000",
-	//borderRadius: 20,
-	//borderColor: "#fff",
-	top: 30,
+	borderRadius: 20,
+	borderColor: "#fff",
+	top: 130,
 	left: 10,
 	right: 10,
 });
@@ -69,5 +69,5 @@ var alertText = function(){
 	alert( txt1.value + ", your" + "\n" + "Max Heart Rate is: " + maxText + " BPM" + "\n" + "Target Heart Rate Zone is:"  + "\n" + Math.round(lRange) + " BPM - " + Math.round(hRange) + " BPM" + "\n");
 };
 submitButton.addEventListener("click", alertText);
-formView.add(txt1, txt2, submitButton);
+formView.add(txt1, txt2, txt3, submitButton);
 currentWindow.add(formView);

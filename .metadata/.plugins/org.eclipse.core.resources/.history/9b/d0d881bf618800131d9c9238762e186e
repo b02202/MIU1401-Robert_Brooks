@@ -97,7 +97,7 @@ var signUp= Ti.UI.createLabel({
     borderRadius: 20,
     borderColor: "#fff",
     height: 50,
-    top: 20,
+    top: 50,
     left: 40,
     right: 40
     //file: 'signup.js'
@@ -106,30 +106,24 @@ signUp.addEventListener('click', function(){
     win1.openWindow(win3, {animated:true});
 });
 
-loginButton.addEventListener('click', function emailVal(){
-	var email = txt1.value;
-	var atPos = email.indexOf("@");
-	var dotPos = email.lastIndexOf(".");
+loginButton.addEventListener('click', function(){
+	if(txt1.value === "email@email.com"){
+				var newWindow = Ti.UI.createWindow({
+		title: win2.text,
+		modal: true,
+		backgroundColor: "#000",
+		//backgroundImage: "bg1.png",
+		url: 'start.js',
+		// next three lines pass the navGroup properties to each newWindow created
+		_parent: Ti.UI.currentWindow,
+		//navgrouo: navGroup,
+		rootWindow: win1
+	});
+	} else{ 
+		alert("No");
+	};
 
-	
-		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length) {
-			alert("Please enter a valid email.");
-		} else{ 
-			var newWindow = Ti.UI.createWindow({
-				title: win2.text,
-				modal: true,
-				backgroundColor: "#000",
-				//backgroundImage: "bg1.png",
-				url: 'start.js',
-				// next three lines pass the navGroup properties to each newWindow created
-				_parent: Ti.UI.currentWindow,
-				//navgrouo: navGroup,
-				rootWindow: win1
-			});
-	win1.openWindow(newWindow, {animated:true});
-			
-		}	
-	// win1.openWindow(newWindow, {animated:true});
+   win1.openWindow(newWindow, {animated:true});
 });
 //win1.navGroup = win1;
 

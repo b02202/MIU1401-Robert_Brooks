@@ -106,30 +106,38 @@ signUp.addEventListener('click', function(){
     win1.openWindow(win3, {animated:true});
 });
 
-loginButton.addEventListener('click', function emailVal(){
-	var email = txt1.value;
-	var atPos = email.indexOf("@");
-	var dotPos = email.lastIndexOf(".");
-
+loginButton.addEventListener('click', function(){
+	var emailCheck = function(email) { 
+	var emailDivider =  email.split("@");
+	var emailDivider2 = emailDivider[1].split(".");
+	var email1 = emailDivider[0];
+	var email2 = emailDivider2[0];
+	var email3 = emailDivider2[1];
+	var test = email.indexOf("@");
+	var test2 = email.lastIndexOf("@");
+	var test3 = email.indexOf(".");
+	var test4 = email.lastIndexOf(".");
+	var emailInput = email1 + "@" + email2 + "." + email3;
 	
-		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length) {
-			alert("Please enter a valid email.");
-		} else{ 
-			var newWindow = Ti.UI.createWindow({
+		if (emailInput === email && test <= test2 && test > 0 && test3 <= test4 && test4 > test2 +1) {
+					var newWindow = Ti.UI.createWindow({
 				title: win2.text,
 				modal: true,
 				backgroundColor: "#000",
 				//backgroundImage: "bg1.png",
 				url: 'start.js',
 				// next three lines pass the navGroup properties to each newWindow created
-				_parent: Ti.UI.currentWindow,
-				//navgrouo: navGroup,
-				rootWindow: win1
-			});
+			_parent: Ti.UI.currentWindow,
+			//navgrouo: navGroup,
+			rootWindow: win1
+		});
 	win1.openWindow(newWindow, {animated:true});
-			
-		}	
-	// win1.openWindow(newWindow, {animated:true});
+		} else{ 
+			alert("No");
+		
+		}
+		
+// win1.openWindow(newWindow, {animated:true});
 });
 //win1.navGroup = win1;
 
@@ -137,6 +145,7 @@ loginButton.addEventListener('click', function emailVal(){
     win1.closeWindow(win3, {animated:false}); //win3.close() will also work!!
 });
 */
+emailCheck(txt1.value);
 formView2.add(txt1, txt2, txt3);
 formView.add(txt1, txt2, loginButton, signUp);
 container.add(formView);

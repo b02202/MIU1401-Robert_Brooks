@@ -113,8 +113,6 @@ loginButton.addEventListener('click', function emailVal(){
 
 	
 		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length) {
-			alert("Please enter a valid email.");
-		} else{ 
 			var newWindow = Ti.UI.createWindow({
 				title: win2.text,
 				modal: true,
@@ -127,7 +125,8 @@ loginButton.addEventListener('click', function emailVal(){
 				rootWindow: win1
 			});
 	win1.openWindow(newWindow, {animated:true});
-			
+		} else{ 
+			alert("Please enter a valid email.");
 		}	
 	// win1.openWindow(newWindow, {animated:true});
 });

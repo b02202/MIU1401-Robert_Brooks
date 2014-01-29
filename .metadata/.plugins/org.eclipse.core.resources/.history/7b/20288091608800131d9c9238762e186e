@@ -4,9 +4,9 @@ var formData = ["Name", "Age", "Endurance / Interval", "Phone"];
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	backgroundColor: "#000",
-	//borderRadius: 20,
-	//borderColor: "#fff",
-	top: 30,
+	borderRadius: 20,
+	borderColor: "#fff",
+	top: 130,
 	left: 10,
 	right: 10,
 });
