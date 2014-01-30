@@ -1,0 +1,266 @@
+var win2 = Titanium.UI.createWindow({
+    backgroundColor: 'black',
+    title: 'FT Target Heart Rate Calculator'
+});
+
+var win1 = Titanium.UI.iOS.createNavigationWindow({
+   window: win2,
+   exitOnClose: true
+});
+
+var win3 = Titanium.UI.createWindow({
+    backgroundColor: 'black',
+    title: 'Sign-up'
+});
+
+var container = Ti.UI.createView({
+	top: 20,
+	//height: 300,
+	width: "100%"
+});
+var formData = ["Email  Ex: email@email.com", "Password", "Email", "Name"];
+var formView = Ti.UI.createScrollView({
+	layout: "vertical",
+	//backgroundColor: "#000",
+	//borderRadius: 20,
+	//borderColor: "#fff",
+	top: 0,
+	left: 10,
+	right: 10,
+});
+var formView2 = Ti.UI.createScrollView({
+	layout: "vertical",
+	//backgroundColor: "#000",
+	//borderRadius: 20,
+	//borderColor: "#fff",
+	top: 0,
+	left: 10,
+	right: 10,
+});
+var fieldHeight = 40;
+var nameTxt = Ti.UI.createTextField({
+	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	  color: '#336699',
+	  top: 10,
+	  left: 10,
+	  right: 10, 
+	  height: fieldHeight,
+	  hintText: formData[3]
+});
+var txt1 = Ti.UI.createTextField({
+	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	  color: '#336699',
+	  top: 10,
+	  left: 10,
+	  right: 10, 
+	  height: fieldHeight,
+	  hintText: formData[0]
+});
+var txt2 = Ti.UI.createTextField({
+	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	  color: '#336699',
+	  top: 10,
+	  left: 10,
+	  right: 10, 
+	  height: fieldHeight,
+	  hintText: formData[1]
+});
+var txt3 = Ti.UI.createTextField({
+	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	  color: '#336699',
+	  top: 10,
+	  left: 10,
+	  right: 10, 
+	  height: fieldHeight,
+	  hintText: formData[2]
+});
+
+var loginButton = Ti.UI.createLabel({
+	text: "Login",
+	color: "#fff",
+	font: {fontSize: 25, fontFamily: "Helvetica"},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    backgroundColor: "#0099ff",
+    borderRadius: 20,
+    borderColor: "#fff",
+    height: 50,
+    top: 20,
+    left: 40,
+    right: 40,
+    file: 'start.js'
+});
+
+var signUp= Ti.UI.createLabel({
+	text: "SignUp",
+	color: "#fff",
+	font: {fontSize: 25, fontFamily: "Helvetica"},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    backgroundColor: "#0099ff",
+    borderRadius: 20,
+    borderColor: "#fff",
+    height: 50,
+    top: 20,
+    left: 40,
+    right: 40
+    //file: 
+});
+var signUp2= Ti.UI.createLabel({
+	text: "SignUp",
+	color: "#fff",
+	font: {fontSize: 25, fontFamily: "Helvetica"},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    backgroundColor: "#0099ff",
+    borderRadius: 20,
+    borderColor: "#fff",
+    height: 50,
+    top: 20,
+    left: 40,
+    right: 40
+    //file: 
+});
+signUp.addEventListener('click', function(){
+    win1.openWindow(win3, {animated:true});
+});
+signUp2.addEventListener('click', function emailVal(){
+	var name = nameTxt.value;
+	var email = txt1.value;
+	var pass = txt2.value;
+	var atPos = email.indexOf("@");
+	var dotPos = email.lastIndexOf(".");
+
+	
+		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length || pass == null || pass == "" || name == null || name == "") {
+			alert("Please enter a valid email address and password.");
+		} else{ 
+			var newWindow = Ti.UI.createWindow({
+				title: win2.text,
+				modal: true,
+				backgroundColor: "#000",
+				//backgroundImage: "bg1.png",
+				url: 'start.js',
+				// next three lines pass the navGroup properties to each newWindow created
+				_parent: Ti.UI.currentWindow,
+				//navgrouo: navGroup,
+				rootWindow: win1
+			});
+	win1.openWindow(newWindow, {animated:true});
+			
+		}	
+	
+});
+
+loginButton.addEventListener('click', function emailVal(){
+	var email = txt1.value;
+	var pass = txt2.value;
+	var atPos = email.indexOf("@");
+	var dotPos = email.lastIndexOf(".");
+
+	
+		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length || pass == null || pass == "") {
+			alert("Please enter a valid email address and password.");
+		} else{ 
+			var newWindow = Ti.UI.createWindow({
+				title: win2.text,
+				modal: true,
+				backgroundColor: "#000",
+				//backgroundImage: "bg1.png",
+				url: 'start.js',
+				// next three lines pass the navGroup properties to each newWindow created
+				_parent: Ti.UI.currentWindow,
+				exitOnClose: true,
+				//navgrouo: navGroup,
+				rootWindow: win1
+			});
+	win1.openWindow(newWindow, {animated:true});
+			
+		}	
+	
+});
+var closeButton = Ti.UI.createLabel({
+	text: "Exit App",
+	color: "#fff",
+	font: {fontSize: 25, fontFamily: "Helvetica"},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    backgroundColor: "#0099ff",
+    borderRadius: 20,
+    borderColor: "#fff",
+    height: 30,
+    bottom: 20,
+    left: 40,
+    right: 40
+});
+
+closeButton.addEventListener("click", function(e){
+	
+	var closeView = Ti.UI.createView({
+		visible: true,
+		height: '100%',
+		backgroundColor: "000000"
+		
+	});
+	var cancelText = Ti.UI.createLabel({
+		text: 'Are you sure you want to exit application?',
+		color: "#fff",
+		font: {fontSize: 30, fontFamily: "Helvetica"},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+		right: 20,
+		left: 20,
+		top:30
+	});
+	var yesButton = Ti.UI.createLabel({
+		visbile: true,
+		text: "Yes",
+		color: "#fff",
+		font: {fontSize: 25, fontFamily: "Helvetica"},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	    backgroundColor: "#0099ff",
+	    borderRadius: 10,
+	    borderColor: "#fff",
+	    height: 50,
+	    top: 200,
+	    left: 30,
+	    width: '35%'
+	});
+	var cancelButton = Ti.UI.createLabel({
+		text: "Cancel",
+		color: "#fff",
+		font: {fontSize: 25, fontFamily: "Helvetica"},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	    backgroundColor: "#0099ff",
+	    borderRadius: 10,
+	    borderColor: "#fff",
+	    height: 50,
+	    top: 200,
+	    right: 30,
+	    width: '35%'
+	});
+	cancelButton.addEventListener('click', function(){
+		closeView.visible = false;
+	});
+	yesButton.addEventListener('click', function(){
+		win2.close();
+	});
+	
+	closeView.add(yesButton, cancelButton, cancelText);
+	win2.add(closeView);
+	/*var alertText = Ti.UI.createAlertDialog({
+		cancel: 1,
+		buttonNames: ["Yes", "Cancel"],
+		message: "Close App?",
+		title: "Close App?"
+	});
+	alertText.show();
+	alertText.addEventListener("click", function(e){
+		if (e.index === e.source.cancel){
+			alert("no go");
+		};
+	*/
+
+});
+
+formView2.add(nameTxt, txt1, txt2, signUp2);
+formView.add(txt1, txt2, loginButton, signUp);
+container.add(formView);
+win2.add(container, closeButton);
+win3.add(formView2);
+win1.open();
