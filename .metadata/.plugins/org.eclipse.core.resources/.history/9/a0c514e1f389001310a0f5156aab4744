@@ -4,9 +4,7 @@ Ti.include('json.js');
 
 var logo = Ti.UI.createImageView({
 	image: 'logo.png',
-	bottom: 30,
-	left: 20,
-	right: 20
+	bottom: 30
 });
 
 var formView = Ti.UI.createScrollView({

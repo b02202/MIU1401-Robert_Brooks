@@ -1,14 +1,10 @@
 console.log("Working");
 var currentWindow = Ti.UI.currentWindow;
 Ti.include('json.js');
-
-var logo = Ti.UI.createImageView({
-	image: 'logo.png',
-	bottom: 30,
-	left: 20,
-	right: 20
-});
-
+//console.log(formData1[0].age);
+//var json = JSON.parse(formData1);
+ 
+//["Name", "Age", "Endurance / Interval", "Phone"];
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	backgroundColor: "#000",
@@ -82,4 +78,4 @@ var submitButton = Ti.UI.createLabel({
 submitButton.addEventListener("click", alertText);
 
 formView.add(txt1, txt2, submitButton);
-currentWindow.add(formView, logo);
+currentWindow.add(formView);
