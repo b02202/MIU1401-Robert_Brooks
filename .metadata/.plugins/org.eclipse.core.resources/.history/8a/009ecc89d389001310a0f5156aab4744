@@ -1,0 +1,11 @@
+var dataList = {
+	"Form": {
+		"headTitle": "Enter your information below.",
+		"footTitle": "Pick a trainer to read bio.",
+		"field": [
+			{"name": "Name",
+			 "email": "Email Ex: email@email.com",
+			 "pass": "Password"} 	 	
+		]
+	}
+};

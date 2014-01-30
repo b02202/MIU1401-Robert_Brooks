@@ -1,6 +1,10 @@
 console.log("Working");
 var currentWindow = Ti.UI.currentWindow;
-var formData = ["Name", "Age", "Endurance / Interval", "Phone"];
+Ti.include('json.js');
+//console.log(formData1[0].age);
+//var json = JSON.parse(formData1);
+ 
+//["Name", "Age", "Endurance / Interval", "Phone"];
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	backgroundColor: "#000",
@@ -18,7 +22,7 @@ var txt1 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[0]
+	  hintText: formData[0].name
 });
 var txt2 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -27,7 +31,7 @@ var txt2 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[1]
+	  hintText: formData[0].age
 });
 var txt3 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -36,7 +40,7 @@ var txt3 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[2]
+	  //hintText: formData[2]
 });
 /*var txt4 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -74,4 +78,4 @@ var submitButton = Ti.UI.createLabel({
 submitButton.addEventListener("click", alertText);
 
 formView.add(txt1, txt2, submitButton);
-currentWindow.add(formView, closeButton);
+currentWindow.add(formView);

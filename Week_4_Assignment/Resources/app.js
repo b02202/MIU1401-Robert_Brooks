@@ -8,6 +8,7 @@ var win1 = Titanium.UI.iOS.createNavigationWindow({
    window: win2,
    exitOnClose: true
 });
+Ti.include('json.js');
 
 var win3 = Titanium.UI.createWindow({
     backgroundColor: 'black',
@@ -19,7 +20,7 @@ var container = Ti.UI.createView({
 	//height: 300,
 	width: "100%"
 });
-var formData = ["Email  Ex: email@email.com", "Password", "Email", "Name"];
+//var formData = ["Email  Ex: email@email.com", "Password", "Email", "Name"];
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	//backgroundColor: "#000",
@@ -46,7 +47,7 @@ var nameTxt = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[3]
+	  hintText: formData[0].name
 });
 var txt1 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -55,7 +56,7 @@ var txt1 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[0]
+	  hintText: formData[0].email
 });
 var txt2 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -64,7 +65,7 @@ var txt2 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[1]
+	  hintText: formData[0].pass
 });
 var txt3 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -73,7 +74,7 @@ var txt3 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[2]
+	  hintText: formData[0].name
 });
 
 var loginButton = Ti.UI.createLabel({
@@ -106,7 +107,7 @@ var signUp= Ti.UI.createLabel({
     //file: 
 });
 var signUp2= Ti.UI.createLabel({
-	text: "SignUp",
+	text: "Get Started",
 	color: "#fff",
 	font: {fontSize: 25, fontFamily: "Helvetica"},
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -131,7 +132,7 @@ signUp2.addEventListener('click', function emailVal(){
 
 	
 		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length || pass == null || pass == "" || name == null || name == "") {
-			alert("Please enter a valid email address and password.");
+			alert("Please enter a valid name, email address, and password.");
 		} else{ 
 			var newWindow = Ti.UI.createWindow({
 				title: win2.text,
@@ -244,18 +245,6 @@ closeButton.addEventListener("click", function(e){
 	
 	closeView.add(yesButton, cancelButton, cancelText);
 	win2.add(closeView);
-	/*var alertText = Ti.UI.createAlertDialog({
-		cancel: 1,
-		buttonNames: ["Yes", "Cancel"],
-		message: "Close App?",
-		title: "Close App?"
-	});
-	alertText.show();
-	alertText.addEventListener("click", function(e){
-		if (e.index === e.source.cancel){
-			alert("no go");
-		};
-	*/
 
 });
 

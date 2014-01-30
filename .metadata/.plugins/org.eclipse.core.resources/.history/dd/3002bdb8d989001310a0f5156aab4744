@@ -1,0 +1,7 @@
+var dataList = 
+[
+	{"name": "Name",
+	"Age": "Age",
+	"pass": "Password"} 	 	
+];
+	
