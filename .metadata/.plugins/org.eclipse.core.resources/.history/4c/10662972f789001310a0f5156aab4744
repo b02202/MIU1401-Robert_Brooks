@@ -1,23 +1,11 @@
-var win2 = Titanium.UI.createWindow({
-    backgroundColor: 'black',
-    title: 'FT Utility'
-});
 
-var win1 = Titanium.UI.iOS.createNavigationWindow({
-   window: win2
-});
-
-var win3 = Titanium.UI.createWindow({
-    backgroundColor: 'black',
-    title: 'Sign-up'
-});
 
 var container = Ti.UI.createView({
 	top: 20,
 	//height: 300,
 	width: "100%"
 });
-var formData = ["Email  Ex: email@email.com", "Password", "Email", "Name"];
+
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	//backgroundColor: "#000",
@@ -44,7 +32,7 @@ var nameTxt = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[3]
+	  hintText: formData[0].name
 });
 var txt1 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -53,7 +41,7 @@ var txt1 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[0]
+	  hintText: formData[0].email
 });
 var txt2 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -62,7 +50,7 @@ var txt2 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[1]
+	  hintText: formData[0].pass
 });
 var txt3 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -71,16 +59,8 @@ var txt3 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[2]
+	  hintText: formData[0].name
 });
-
-/*var button = Titanium.UI.createButton({
-    title: 'Open Blue Window'
-});
-button.addEventListener('click', function(){
-    win1.openWindow(win3, {animated:true});
-});
-*/
 
 var loginButton = Ti.UI.createLabel({
 	text: "Login",
@@ -109,10 +89,10 @@ var signUp= Ti.UI.createLabel({
     top: 20,
     left: 40,
     right: 40
-    //file: 'signup.js'
+    //file: 
 });
 var signUp2= Ti.UI.createLabel({
-	text: "SignUp",
+	text: "Get Started",
 	color: "#fff",
 	font: {fontSize: 25, fontFamily: "Helvetica"},
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -123,10 +103,11 @@ var signUp2= Ti.UI.createLabel({
     top: 20,
     left: 40,
     right: 40
-    //file: 'signup.js'
+    //file: 
 });
 signUp.addEventListener('click', function(){
     win1.openWindow(win3, {animated:true});
+    win3.add(formView2);
 });
 signUp2.addEventListener('click', function emailVal(){
 	var name = nameTxt.value;
@@ -137,10 +118,10 @@ signUp2.addEventListener('click', function emailVal(){
 
 	
 		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length || pass == null || pass == "" || name == null || name == "") {
-			alert("Please enter a valid email address and password.");
+			alert("Please enter a valid name, email address, and password.");
 		} else{ 
 			var newWindow = Ti.UI.createWindow({
-				title: win2.text,
+				title: win2.title,
 				modal: true,
 				backgroundColor: "#000",
 				//backgroundImage: "bg1.png",
@@ -153,7 +134,7 @@ signUp2.addEventListener('click', function emailVal(){
 	win1.openWindow(newWindow, {animated:true});
 			
 		}	
-	// win1.openWindow(newWindow, {animated:true});
+	
 });
 
 loginButton.addEventListener('click', function emailVal(){
@@ -175,148 +156,86 @@ loginButton.addEventListener('click', function emailVal(){
 				// next three lines pass the navGroup properties to each newWindow created
 				_parent: Ti.UI.currentWindow,
 				exitOnClose: true,
-				//navgrouo: navGroup,
 				rootWindow: win1
 			});
 	win1.openWindow(newWindow, {animated:true});
 			
 		}	
-	// win1.openWindow(newWindow, {animated:true});
+	
 });
-//win1.navGroup = win1;
+var closeButton = Ti.UI.createLabel({
+	text: "Exit App",
+	color: "#fff",
+	font: {fontSize: 25, fontFamily: "Helvetica"},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    backgroundColor: "#0099ff",
+    //borderRadius: 20,
+    borderColor: "#fff",
+    height: 40,
+    bottom: 0,
+    width: '100%'
+   
+    
+});
 
-/*button2.addEventListener('click', function(){
-    win1.closeWindow(win3, {animated:false}); //win3.close() will also work!!
+closeButton.addEventListener("click", function(e){
+	
+	var closeView = Ti.UI.createView({
+		visible: true,
+		height: '100%',
+		backgroundColor: "000000"
+		
+	});
+	var cancelText = Ti.UI.createLabel({
+		text: 'Are you sure you want to exit application?',
+		color: "#fff",
+		font: {fontSize: 30, fontFamily: "Helvetica"},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+		right: 20,
+		left: 20,
+		top:30
+	});
+	var yesButton = Ti.UI.createLabel({
+		visbile: true,
+		text: "Yes",
+		color: "#fff",
+		font: {fontSize: 25, fontFamily: "Helvetica"},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	    backgroundColor: "#0099ff",
+	    borderRadius: 10,
+	    borderColor: "#fff",
+	    height: 50,
+	    top: 200,
+	    left: 30,
+	    width: '35%'
+	});
+	var cancelButton = Ti.UI.createLabel({
+		text: "Cancel",
+		color: "#fff",
+		font: {fontSize: 25, fontFamily: "Helvetica"},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	    backgroundColor: "#0099ff",
+	    borderRadius: 10,
+	    borderColor: "#fff",
+	    height: 50,
+	    top: 200,
+	    right: 30,
+	    width: '35%'
+	});
+	cancelButton.addEventListener('click', function(){
+		closeView.visible = false;
+	});
+	yesButton.addEventListener('click', function(){
+		win1.close();
+	});
+	
+	closeView.add(yesButton, cancelButton, cancelText);
+	win2.add(closeView);
+
 });
-*/
+
 formView2.add(nameTxt, txt1, txt2, signUp2);
 formView.add(txt1, txt2, loginButton, signUp);
 container.add(formView);
-win2.add(container);
-win3.add(formView2);
-win1.open();
-
-/*var win = Ti.UI.createWindow({
-	title: "Utility App",
-	tabBarHidden: true,
-	backgroundColor: "#333",
-});
-var navWindow = Ti.UI.createWindow({
-	title: "Utility App",
-	modal: true,
-	backgroundImage: "bg1.png",
-	backgroundColor: "#000"
-});
-var container = Ti.UI.createView({
-	top: 20,
-	//height: 300,
-	width: "100%"
-});
-
-var formData = ["Username / Email", "Password", "Email", "Phone"];
-var formView = Ti.UI.createScrollView({
-	layout: "vertical",
-	//backgroundColor: "#000",
-	//borderRadius: 20,
-	//borderColor: "#fff",
-	top: 0,
-	left: 10,
-	right: 10,
-});
-var fieldHeight = 40;
-var txt1 = Ti.UI.createTextField({
-	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	  color: '#336699',
-	  top: 10,
-	  left: 10,
-	  right: 10, 
-	  height: fieldHeight,
-	  hintText: formData[0]
-});
-var txt2 = Ti.UI.createTextField({
-	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	  color: '#336699',
-	  top: 10,
-	  left: 10,
-	  right: 10, 
-	  height: fieldHeight,
-	  hintText: formData[1]
-});
-var txt3 = Ti.UI.createTextField({
-	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	  color: '#336699',
-	  top: 10,
-	  left: 10,
-	  right: 10, 
-	  height: fieldHeight,
-	  hintText: formData[2]
-});
-var txt4 = Ti.UI.createTextField({
-	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	  color: '#336699',
-	  top: 10,
-	  left: 10,
-	  right: 10, 
-	  height: fieldHeight,
-	  hintText: formData[3]
-});
-
-var loginButton = Ti.UI.createLabel({
-	text: "Login",
-	color: "#fff",
-	font: {fontSize: 25, fontFamily: "Helvetica"},
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-    backgroundColor: "#0099ff",
-    borderRadius: 20,
-    borderColor: "#fff",
-    height: 50,
-    top: 13,
-    left: 40,
-    right: 40,
-    file: 'home.js'
-});
-
-var signUp= Ti.UI.createLabel({
-	text: "SignUp",
-	color: "#fff",
-	font: {fontSize: 25, fontFamily: "Helvetica"},
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-    backgroundColor: "#0099ff",
-    borderRadius: 20,
-    borderColor: "#fff",
-    height: 50,
-    top: 50,
-    left: 40,
-    right: 40,
-    file: 'signup.js'
-});
-
-
-container.addEventListener("click", function(event){
-	var newWindow = Ti.UI.createWindow({
-		title: event.source.text,
-		modal: true,
-		backgroundColor: "#000",
-		backgroundImage: "bg1.png",
-		url: event.source.file,
-		// next three lines pass the navGroup properties to each newWindow created
-		_parent: Ti.UI.currentWindow,
-		navGroup: navGroup,
-		rootWindow: navWindow
-	});
-	navGroup.open(newWindow, {animation: true});
-});
-
-var navGroup = Ti.UI.iOS.createNavigationWindow({
-	window: navWindow	
-});
-navWindow.navGroup = navGroup;
-//gView.add(spacer, gLabel);
-//tView.add(spacer, tLabel);
-//fView.add(fLabel);
-formView.add(txt1, txt2, loginButton, signUp);
-container.add(formView);
-navWindow.add(container);
-win.add(navGroup);
-win.open();
-*/
+//win3.add(formView2);
+win2.add(container, closeButton);

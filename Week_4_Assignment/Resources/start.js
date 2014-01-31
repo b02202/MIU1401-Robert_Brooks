@@ -1,4 +1,3 @@
-console.log("Working");
 var currentWindow = Ti.UI.currentWindow;
 Ti.include('json.js');
 
@@ -37,25 +36,6 @@ var txt2 = Ti.UI.createTextField({
 	  height: fieldHeight,
 	  hintText: formData[0].age
 });
-var txt3 = Ti.UI.createTextField({
-	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	  color: '#336699',
-	  top: 10,
-	  left: 10,
-	  right: 10, 
-	  height: fieldHeight,
-	  //hintText: formData[2]
-});
-/*var txt4 = Ti.UI.createTextField({
-	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	  color: '#336699',
-	  top: 10,
-	  left: 10,
-	  right: 10, 
-	  height: fieldHeight,
-	  hintText: formData[3]
-});
-*/
 var submitButton = Ti.UI.createLabel({
 	text: "SUBMIT",
 	color: "#fff",
@@ -69,7 +49,6 @@ var submitButton = Ti.UI.createLabel({
     left: 40,
     right: 40
 });
-
 
  var alertText = function(){
 	var maxText = 220 - txt2.value;

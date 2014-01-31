@@ -1,6 +1,14 @@
 console.log("Working");
 var currentWindow = Ti.UI.currentWindow;
-var formData = ["Name", "Age", "Endurance / Interval", "Phone"];
+Ti.include('json.js');
+
+var logo = Ti.UI.createImageView({
+	image: 'logo.png',
+	bottom: 30,
+	left: 20,
+	right: 20
+});
+
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	backgroundColor: "#000",
@@ -18,7 +26,7 @@ var txt1 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[0]
+	  hintText: formData[0].name
 });
 var txt2 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -27,7 +35,7 @@ var txt2 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[1]
+	  hintText: formData[0].age
 });
 var txt3 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -36,7 +44,7 @@ var txt3 = Ti.UI.createTextField({
 	  left: 10,
 	  right: 10, 
 	  height: fieldHeight,
-	  hintText: formData[2]
+	  //hintText: formData[2]
 });
 /*var txt4 = Ti.UI.createTextField({
 	  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -62,27 +70,16 @@ var submitButton = Ti.UI.createLabel({
     right: 40
 });
 
-var closeButton = Ti.Ui.createLabel({
-	text: "Exit App",
-	color: "#fff",
-	font: {fontSize: 25, fontFamily: "Helvetica"},
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-    backgroundColor: "#0099ff",
-    borderRadius: 20,
-    borderColor: "#fff",
-    height: 30,
-    bottom: 20,
-    left: 40,
-    right: 40
-	
-});
-var alertText = function(){
+
+ var alertText = function(){
 	var maxText = 220 - txt2.value;
 	var hRange = maxText * 0.80;
 	var lRange = maxText * 0.50;
 	
 	alert( txt1.value + ", your" + "\n" + "Max Heart Rate is: " + maxText + " BPM" + "\n" + "Target Heart Rate Zone is:"  + "\n" + Math.round(lRange) + " BPM - " + Math.round(hRange) + " BPM" + "\n");
 };
+
 submitButton.addEventListener("click", alertText);
-formView.add(txt1, txt2, submitButton, closeButton);
-currentWindow.add(formView);
+
+formView.add(txt1, txt2, submitButton);
+currentWindow.add(formView, logo);

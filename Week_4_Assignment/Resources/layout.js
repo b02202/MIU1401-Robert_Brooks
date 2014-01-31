@@ -1,11 +1,12 @@
-
-
+var win3 = Titanium.UI.createWindow({
+    backgroundColor: 'black',
+    title: 'Sign-up'
+});
 var container = Ti.UI.createView({
 	top: 20,
 	//height: 300,
 	width: "100%"
 });
-
 var formView = Ti.UI.createScrollView({
 	layout: "vertical",
 	//backgroundColor: "#000",
@@ -61,7 +62,6 @@ var txt3 = Ti.UI.createTextField({
 	  height: fieldHeight,
 	  hintText: formData[0].name
 });
-
 var loginButton = Ti.UI.createLabel({
 	text: "Login",
 	color: "#fff",
@@ -76,7 +76,6 @@ var loginButton = Ti.UI.createLabel({
     right: 40,
     file: 'start.js'
 });
-
 var signUp= Ti.UI.createLabel({
 	text: "SignUp",
 	color: "#fff",
@@ -89,7 +88,6 @@ var signUp= Ti.UI.createLabel({
     top: 20,
     left: 40,
     right: 40
-    //file: 
 });
 var signUp2= Ti.UI.createLabel({
 	text: "Get Started",
@@ -102,8 +100,7 @@ var signUp2= Ti.UI.createLabel({
     height: 50,
     top: 20,
     left: 40,
-    right: 40
-    //file: 
+    right: 40 
 });
 signUp.addEventListener('click', function(){
     win1.openWindow(win3, {animated:true});
@@ -115,8 +112,7 @@ signUp2.addEventListener('click', function emailVal(){
 	var pass = txt2.value;
 	var atPos = email.indexOf("@");
 	var dotPos = email.lastIndexOf(".");
-
-	
+		
 		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length || pass == null || pass == "" || name == null || name == "") {
 			alert("Please enter a valid name, email address, and password.");
 		} else{ 
@@ -134,21 +130,18 @@ signUp2.addEventListener('click', function emailVal(){
 	win1.openWindow(newWindow, {animated:true});
 			
 		}	
-	
 });
-
 loginButton.addEventListener('click', function emailVal(){
 	var email = txt1.value;
 	var pass = txt2.value;
 	var atPos = email.indexOf("@");
 	var dotPos = email.lastIndexOf(".");
 
-	
 		if (atPos<1 || dotPos<atPos+2 || dotPos+2>=email.length || pass == null || pass == "") {
 			alert("Please enter a valid email address and password.");
 		} else{ 
 			var newWindow = Ti.UI.createWindow({
-				title: win2.text,
+				title: win2.title,
 				modal: true,
 				backgroundColor: "#000",
 				//backgroundImage: "bg1.png",
@@ -161,7 +154,6 @@ loginButton.addEventListener('click', function emailVal(){
 	win1.openWindow(newWindow, {animated:true});
 			
 		}	
-	
 });
 var closeButton = Ti.UI.createLabel({
 	text: "Exit App",
@@ -173,18 +165,13 @@ var closeButton = Ti.UI.createLabel({
     borderColor: "#fff",
     height: 40,
     bottom: 0,
-    width: '100%'
-   
-    
+    width: '100%'  
 });
-
 closeButton.addEventListener("click", function(e){
-	
 	var closeView = Ti.UI.createView({
 		visible: true,
 		height: '100%',
 		backgroundColor: "000000"
-		
 	});
 	var cancelText = Ti.UI.createLabel({
 		text: 'Are you sure you want to exit application?',
@@ -231,11 +218,9 @@ closeButton.addEventListener("click", function(e){
 	
 	closeView.add(yesButton, cancelButton, cancelText);
 	win2.add(closeView);
-
 });
 
 formView2.add(nameTxt, txt1, txt2, signUp2);
 formView.add(txt1, txt2, loginButton, signUp);
 container.add(formView);
-//win3.add(formView2);
 win2.add(container, closeButton);
